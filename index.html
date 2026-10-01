@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For Cazya Zieloura — Happy Birthday</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- MUSIC -->
+
+    <audio id="bgMusic" loop>
+        <source src="sorai_zie.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <button
+        id="musicButton"
+        class="music-button"
+        onclick="toggleMusic()"
+        aria-label="Musik"
+    >
+        ♪
+    </button>
+
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="glow glow-1"></div>
+
+        <div class="glow glow-2"></div>
+
+    </div>
+
+
+
+    <!-- HOME -->
+
+    <main
+        class="home"
+        id="homePage"
+    >
+
+        <div class="home-content">
+
+            <p class="small-text">
+                A little something for you.
+            </p>
+
+
+            <h1>
+                Hey,<br>
+                <span>Cazya Zieloura.</span>
+            </h1>
+
+
+            <p class="intro">
+                Before you continue,<br>
+                I made something for your special day.
+            </p>
+
+
+            <button
+                class="enter-btn"
+                onclick="startBirthday()"
+            >
+
+                <span>
+                    ENTER
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="bottom-text">
+
+            <span>
+                SCROLL TO DISCOVER
+            </span>
+
+            <div class="line"></div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- WEBSITE CONTENT -->
+
+    <iframe
+        id="pageFrame"
+        class="page-frame"
+        src=""
+        frameborder="0"
+    ></iframe>
+
+
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        const music =
+            document.getElementById("bgMusic");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+        const homePage =
+            document.getElementById("homePage");
+
+        const pageFrame =
+            document.getElementById("pageFrame");
+
+
+
+
+        function startBirthday() {
+
+            music.play()
+                .then(function () {
+
+                    musicButton.classList.add(
+                        "playing"
+                    );
+
+                })
+                .catch(function () {
+
+                    console.log(
+                        "Musik belum dapat diputar."
+                    );
+
+                });
+
+
+            homePage.style.display =
+                "none";
+
+
+            pageFrame.src =
+                "story.html";
+
+
+            pageFrame.style.display =
+                "block";
+
+        }
+
+
+        function toggleMusic() {
+
+            if (music.paused) {
+
+                music.play();
+
+                musicButton.classList.add(
+                    "playing"
+                );
+
+                musicButton.innerHTML =
+                    "♫";
+
+            } else {
+
+                music.pause();
+
+                musicButton.classList.remove(
+                    "playing"
+                );
+
+                musicButton.innerHTML =
+                    "♪";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
